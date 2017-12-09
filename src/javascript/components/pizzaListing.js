@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import pizza from '../../static/result.json';
 
-const Home = () =>  {
+const PizzaListing = () =>  {
     return (
         <div className="container">
-        
+            
         </div>
     );
 };
-export default Home;
+export default PizzaListing;

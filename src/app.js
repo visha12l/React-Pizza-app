@@ -1,13 +1,12 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import { HashRouter as Router, Route } from 'react-router-dom';
-import Home from './javascript/components/home.js';
-//import './css/style.css';
+import PizzaListing from './javascript/components/pizzaListing.js';
 
 ReactDom.render((
    <Router>
       <div>
-        <Route exact path="/" component={Home} />
+      <Route exact path="/" component={PizzaListing} />
       </div>
    </Router>
 ), document.getElementById('app'));
