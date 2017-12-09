@@ -1,9 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import pizza from '../../static/pizzas.json';
+import Cart from './cart';
 import underscore from 'underscore';
 
 export default class PizzaListing extends React.Component {
+
     constructor () {
         super();
         this.state = {
@@ -11,7 +12,7 @@ export default class PizzaListing extends React.Component {
             cartArray: []
         };
         this.addToCart = this.addToCart.bind(this);
-        this.placeOrder = this.placeOrder.bind(this);
+        this.removeItem = this.removeItem.bind(this);
     }
 
     addToCart(name, price, key, event) {
@@ -24,21 +25,18 @@ export default class PizzaListing extends React.Component {
         } else {
             alert('item is already added in cart');
         }
-         //show success message on clicking of order button
     }
 
     removeItem(deleteItemId) { 
+        debugger
         let result = this.state.cartArray;
-        result.splice(deleteItemId, 1); //remove id from array
+        result.splice(deleteItemId, 1);
         this.setState({
-            cartArray: result, //re render the Component
+            cartArray: result,
         });
     }
 
     render() {
-        let total = this.state.cartArray.reduce(function (a, b) {
-            return a + b.price;
-        }, 0)
         return (
             <div className="container pizzaAppWrapper clearfix">
                 <ul className="row clearfix pizzaListing">
@@ -56,37 +54,7 @@ export default class PizzaListing extends React.Component {
                         })
                     }
                 </ul>
-                <div className="userCart">
-                    <ul className="list-group">
-                        {this.state.cartArray.length > 0 && 
-                            <li className="clearfix list-group-item list-group-item-dark">
-                                <h3 className="pull-left">Name</h3>
-                                <span className="pull-right">Action</span>
-                                <span className="pull-right">Price</span>
-                            </li>
-                        }
-                        {this.state.cartArray && 
-                            underscore.map(this.state.cartArray, (item, key) => {
-                                return (
-                                    <li className="list-group-item clearfix list-group-item-success" key={key}>
-                                        <h4 className="pull-left">{item.name}</h4>
-                                        <button 
-                                            className="btn removeItemBtn pull-right btn-danger"
-                                            onClick={this.removeItem.bind(this, key)}
-                                        >X</button>
-                                        <span className="pull-right">{item.price}RS</span>
-                                    </li>
-                                )
-                            })
-                        } 
-                    </ul>
-                    {this.state.cartArray.length > 0 &&
-                        <div className="clearfix totalPriceWrap">
-                            <span className="pull-left">TOTAL :: {total}RS</span>
-                            <button className="btn redBtn pull-right" onClick={this.placeOrder}>Place Your Order</button>
-                        </div>
-                    }
-                </div>
+                <Cart cartArray={this.state.cartArray} removeItem={this.removeItem}/>
             </div>
         );
     }
