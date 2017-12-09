@@ -1,15 +1,69 @@
+body {
+    background-color: #ffeeba;
+}
 .pizzaListing {
     padding: 0;
     list-style-type: none;
 }   
+.pizzaListing li {
+    margin-bottom: 20px;
+    
+}
 .pizzaListing .text-center {
-    background-color: #ffffff;
-    color: #000;
+    background-color: #e61a39;
+    color: #fff;
+    padding: 30px 0;
 }
 .pizzaListing .img-responsive {
     margin: 0 auto;
 }
 .pizzaListing p {
-    width: 200px;
+    width: 320px;
     margin: 0 auto;
+}
+.redBtn {
+    margin: 10px auto;
+    padding: 10px 35px;
+    margin-top: 20px;
+    text-transform: uppercase;
+    background: #fff;
+    color: #e61a39;
+    border: 1px solid #fff;
+    font-weight: 700;
+    font-size: 16px;
+}
+.redBtn:hover {
+    background: #e61a39;
+    color: #fff;
+    border: 1px solid #fff;
+}
+.userCart {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 500px;
+    background-color: #095c91;; 
+}
+.userCart .list-group {
+    margin-bottom: 0;
+}
+.userCart h3 {
+    margin: 0;
+}
+.userCart .list-group-item h3 {
+    min-width: 300px;
+}
+.userCart .list-group-item span {
+    margin: 10px 10px 0;
+}
+.totalPriceWrap {
+    padding: 20px;
+    color: #fff;
+}
+.totalPriceWrap span {
+    font-weight: bold;
+    margin-top: 12px;
+}
+.totalPriceWrap .redBtn {
+    margin: 0;
 }
