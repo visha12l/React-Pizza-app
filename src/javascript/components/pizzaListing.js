@@ -2,6 +2,7 @@ import React from 'react';
 import pizza from '../../static/pizzas.json';
 import Cart from './cart';
 import underscore from 'underscore';
+import SuccessPopup from './shared/successPopup';
 
 export default class PizzaListing extends React.Component {
 
@@ -9,10 +10,13 @@ export default class PizzaListing extends React.Component {
         super();
         this.state = {
             pizzaDetail: pizza.pizzaList,
-            cartArray: []
+            cartArray: [],
+            successPopupStatus: false
         };
         this.addToCart = this.addToCart.bind(this);
         this.removeItem = this.removeItem.bind(this);
+        this.placeOrder = this.placeOrder.bind(this);
+        this.closePopup = this.closePopup.bind(this);
     }
 
     addToCart(name, price, key, event) {
@@ -27,8 +31,7 @@ export default class PizzaListing extends React.Component {
         }
     }
 
-    removeItem(deleteItemId) { 
-        debugger
+    removeItem(deleteItemId) {
         let result = this.state.cartArray;
         result.splice(deleteItemId, 1);
         this.setState({
@@ -36,9 +39,24 @@ export default class PizzaListing extends React.Component {
         });
     }
 
+    placeOrder(total) {
+        let formData = { finalOrder: this.state.cartArray, total };
+        this.setState({
+            successPopupStatus: true
+        });
+    }
+    
+    closePopup() {
+        this.setState({
+            successPopupStatus: false,
+            cartArray: []
+        });
+    }
+
     render() {
         return (
             <div className="container pizzaAppWrapper clearfix">
+                {this.state.successPopupStatus && <SuccessPopup closePopup={this.closePopup} />}
                 <ul className="row clearfix pizzaListing">
                     {underscore.map(this.state.pizzaDetail, (item, key) => {
                         return (
@@ -54,7 +72,7 @@ export default class PizzaListing extends React.Component {
                         })
                     }
                 </ul>
-                <Cart cartArray={this.state.cartArray} removeItem={this.removeItem}/>
+                <Cart cartArray={this.state.cartArray} removeItem={this.removeItem} placeOrder={this.placeOrder} />
             </div>
         );
     }
