@@ -68,20 +68,46 @@ body {
 .userCart .action {
     width: 15%;
 }
-
 .userCart .list-group-item span {
     margin-top: 12px;
 }
 .totalPriceWrap {
-    padding: 20px;
+    padding: 40px 20px 20px 20px;
+    color: #fff;
+    position: relative;
+}
+.totalPriceWrap span {
+    margin-top: 6px;
+}
+.totalPriceWrap .couponInput {
+    background-color: #095c91;
+    padding: 4px;
+    margin-right: 20px;
+    border: 1px solid;
+}
+.totalPriceWrap .couponInput::placeholder {
     color: #fff;
 }
-.totalPriceWrap label {
-    font-weight: bold;
-    margin-top: 12px;
+.totalPriceWrap .couponInput[placeholder]:focus::-webkit-input-placeholder {
+  transition: opacity 0.1s 0.1s ease; 
+  opacity: 0;
 }
-.totalPriceWrap .redBtn {
-    margin: 0;
+.totalPriceWrap .couponMessage {
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.totalPriceWrap .couponWrap {
+    position: relative;
+}
+.floatingLabel {
+    position: absolute;
+    top: -30px;
+    left: 5px;
+}
+totalPriceWrap .redBtn {
+    margin-top: 30px;
 }
 .successPopupWrap{
 	position: fixed;
@@ -106,4 +132,3 @@ body {
 	-webkit-transition: color 0.2s;
 	transition: color 0.2s;
 }
-

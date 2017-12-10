@@ -15,13 +15,13 @@ export default class PizzaListing extends React.Component {
             successPopupStatus: false,
             errorMessage: ''
         };
+        this.fetchPizzaList = this.fetchPizzaList.bind(this);
+        this.successHandler = this.successHandler.bind(this);
+        this.errorHandler = this.errorHandler.bind(this);
         this.addToCart = this.addToCart.bind(this);
         this.removeItem = this.removeItem.bind(this);
         this.placeOrder = this.placeOrder.bind(this);
         this.closePopup = this.closePopup.bind(this);
-        this.fetchPizzaList = this.fetchPizzaList.bind(this);
-        this.successHandler = this.successHandler.bind(this);
-        this.errorHandler = this.errorHandler.bind(this);
     }
 
     componentWillMount() {
