@@ -1,4 +1,5 @@
 import React from 'react';
+import { fetch, save } from '../utils/restUtils';
 import pizza from '../../static/pizzas.json';
 import Cart from './cart';
 import underscore from 'underscore';
@@ -11,12 +12,20 @@ export default class PizzaListing extends React.Component {
         this.state = {
             pizzaDetail: pizza.pizzaList,
             cartArray: [],
-            successPopupStatus: false
+            successPopupStatus: false,
+            errorMessage: ''
         };
         this.addToCart = this.addToCart.bind(this);
         this.removeItem = this.removeItem.bind(this);
         this.placeOrder = this.placeOrder.bind(this);
         this.closePopup = this.closePopup.bind(this);
+        this.fetchPizzaList = this.fetchPizzaList.bind(this);
+        this.successHandler = this.successHandler.bind(this);
+        this.errorHandler = this.errorHandler.bind(this);
+    }
+
+    componentWillMount() {
+        this.fetchPizzaList();   
     }
 
     addToCart(name, price, key, event) {
@@ -29,6 +38,23 @@ export default class PizzaListing extends React.Component {
         } else {
             alert('item is already added in cart');
         }
+    }
+
+    fetchPizzaList() {
+        // let url =  'server/pizzas.json';
+        // fetch(url, this.successHandler, this.errorHandler);
+    }
+
+    successHandler(result) {
+        // this.setState({
+        //     pizzaDetail: result,
+        // });
+    }
+
+    errorHandler(error) {
+        // this.setState({
+        //     errorMessage: error ? error.description : 'Error fetching data.'
+        // });
     }
 
     removeItem(deleteItemId) {
@@ -44,6 +70,10 @@ export default class PizzaListing extends React.Component {
         this.setState({
             successPopupStatus: true
         });
+        /*post api call to send data to the server
+        let url = 'server/order.json';
+        save(url, formData).then(this.closePopup, (error) => { this.setState({ errorMessage: error.description }); });
+        */
     }
     
     closePopup() {
@@ -56,6 +86,7 @@ export default class PizzaListing extends React.Component {
     render() {
         return (
             <div className="container pizzaAppWrapper clearfix">
+                {this.state.errorMessage &&  <p>{this.state.errorMessage}</p>}
                 {this.state.successPopupStatus && <SuccessPopup closePopup={this.closePopup} />}
                 <ul className="row clearfix pizzaListing">
                     {underscore.map(this.state.pizzaDetail, (item, key) => {
