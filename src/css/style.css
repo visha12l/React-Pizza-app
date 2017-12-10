@@ -1,5 +1,10 @@
 body {
-    background-color: #ffeeba;
+    background-color: #332e2f;
+    font-family: 'Raleway', sans-serif;
+}
+.mainHeading {
+    font-weight: bold;
+    color: #fff;
 }
 .pizzaListing {
     padding: 0;
@@ -7,12 +12,12 @@ body {
 }   
 .pizzaListing li {
     margin-bottom: 20px;
-    
 }
 .pizzaListing .text-center {
     background-color: #e61a39;
     color: #fff;
     padding: 30px 0;
+    border-radius: 10px;
 }
 .pizzaListing .img-responsive {
     margin: 0 auto;
@@ -20,6 +25,10 @@ body {
 .pizzaListing p {
     width: 320px;
     margin: 0 auto;
+}
+.pizzaListing .discountLabel {
+    color: #fff;
+    font-weight: bold;
 }
 .redBtn {
     margin: 10px auto;
@@ -50,17 +59,24 @@ body {
 .userCart h3 {
     margin: 0;
 }
-.userCart .list-group-item h3 {
-    min-width: 300px;
+.userCart .name {
+    width: 70%;
 }
+.userCart .price {
+    width: 15%;
+}
+.userCart .action {
+    width: 15%;
+}
+
 .userCart .list-group-item span {
-    margin: 10px 10px 0;
+    margin-top: 12px;
 }
 .totalPriceWrap {
     padding: 20px;
     color: #fff;
 }
-.totalPriceWrap span {
+.totalPriceWrap label {
     font-weight: bold;
     margin-top: 12px;
 }
@@ -73,7 +89,7 @@ body {
 	height: 100%;
 	top: 0;
 	left: 0;
-    background: rgba(0,0,0,0.9);
+    background: rgba(0,0,0,0.97);
     z-index: 999;
 }
 .successPopupWrap .content {

@@ -28,10 +28,14 @@ export default class PizzaListing extends React.Component {
         this.fetchPizzaList();   
     }
 
-    addToCart(name, price, key, event) {
+    addToCart(item, key, event) {
+        let name = item.name;
+        let discount = item.discount;
+        let price = item.price;
+        let finalPrice = price - price * (discount /100);
         event.preventDefault();
         if (!underscore.contains(underscore.pluck(this.state.cartArray, 'name'), name)) {
-            var result = this.state.cartArray.concat({ name: name, price: price });
+            var result = this.state.cartArray.concat({ name, price, finalPrice });
             this.setState({
                 cartArray: result
             });
@@ -88,6 +92,7 @@ export default class PizzaListing extends React.Component {
             <div className="container pizzaAppWrapper clearfix">
                 {this.state.errorMessage &&  <p>{this.state.errorMessage}</p>}
                 {this.state.successPopupStatus && <SuccessPopup closePopup={this.closePopup} />}
+                <h1 className="text-center mainHeading">PIZZA ORDER APP</h1>
                 <ul className="row clearfix pizzaListing">
                     {underscore.map(this.state.pizzaDetail, (item, key) => {
                         return (
@@ -96,7 +101,8 @@ export default class PizzaListing extends React.Component {
                                     <img className="img-responsive" src={item.imageUrl} />
                                     <h3>{item.name}</h3>
                                     <p>{item.description}</p>
-                                    <a href="#" className="btn redBtn" onClick={this.addToCart.bind(this, item.name, item.price, key)}>ADD TO CART</a>
+                                    <h4 className="discountLabel">Price:: {item.price} RS<span> ({item.discount}% of on MRP)</span></h4>
+                                    <a href="#" className="btn redBtn" onClick={this.addToCart.bind(this, item, key)}>ADD TO CART</a>
                                 </div>
                             </li>
                           )  
