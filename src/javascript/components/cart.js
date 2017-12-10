@@ -20,6 +20,7 @@ export default class Cart extends React.Component {
     }
 
     removeItem(key) {
+        this.resetCouponCode();
         this.props.removeItem(key);
     }
 
@@ -62,7 +63,6 @@ export default class Cart extends React.Component {
     handleInputBlur(refName) {
         this.refs[refName].classList.add("hide");
     }
-
 
     render() {
         let {cartArray} = this.props;
