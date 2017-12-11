@@ -4,7 +4,7 @@
   "description": "a webpack based react app for",
   "main": "src/app.js",
   "scripts": {
-    "start": "webpack-dev-server --config ./webpack.config.js --content-base app --host 127.0.0.1 --port 8000 --colors",
+    "start": "webpack && node server.js",
     "test": "src/test.js",
     "build": "webpack",
     "server": "webpack-dev-server --port 8000 --hot --host 0.0.0.0"
@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/visha12l/React-Pizza-app.git#readme",
   "dependencies": {
+    "express": "^4.16.2",
     "form-serialize": "^0.7.2",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
