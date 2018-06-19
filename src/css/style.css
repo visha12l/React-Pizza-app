@@ -2,133 +2,15 @@ body {
     background-color: #332e2f;
     font-family: 'Raleway', sans-serif;
 }
-.mainHeading {
-    font-weight: bold;
-    color: #fff;
-}
-.pizzaListing {
-    padding: 0;
-    list-style-type: none;
-}   
-.pizzaListing li {
-    margin-bottom: 20px;
-}
-.pizzaListing .text-center {
-    background-color: #e61a39;
-    color: #fff;
-    padding: 30px 0;
-    border-radius: 10px;
-}
-.pizzaListing .img-responsive {
-    margin: 0 auto;
-}
-.pizzaListing p {
-    width: 320px;
-    margin: 0 auto;
-}
-.pizzaListing .discountLabel {
-    color: #fff;
+
+.loginForm {
+    margin: 60px auto;
     font-weight: bold;
 }
-.redBtn {
-    margin: 10px auto;
-    padding: 10px 35px;
-    margin-top: 20px;
-    text-transform: uppercase;
-    background: #fff;
-    color: #e61a39;
-    border: 1px solid #fff;
-    font-weight: 700;
-    font-size: 16px;
-}
-.redBtn:hover {
-    background: #e61a39;
-    color: #fff;
-    border: 1px solid #fff;
-}
-.userCart {
-    position: fixed;
-    right: 0;
-    top: 0;
-    width: 500px;
-    background-color: #095c91;; 
-}
-.userCart .list-group {
-    margin-bottom: 0;
-}
-.userCart h3 {
-    margin: 0;
-}
-.userCart .name {
-    width: 70%;
-}
-.userCart .price {
-    width: 15%;
-}
-.userCart .action {
-    width: 15%;
-}
-.userCart .list-group-item span {
-    margin-top: 12px;
-}
-.totalPriceWrap {
-    padding: 40px 20px 20px 20px;
-    color: #fff;
-    position: relative;
-}
-.totalPriceWrap span {
-    margin-top: 6px;
-}
-.totalPriceWrap .couponInput {
-    background-color: #095c91;
+
+.loginForm .userInput {
+    background-color: #ff0000;
     padding: 4px;
     margin-right: 20px;
-    border: 1px solid;
-}
-.totalPriceWrap .couponInput::placeholder {
-    color: #fff;
-}
-.totalPriceWrap .couponInput[placeholder]:focus::-webkit-input-placeholder {
-  transition: opacity 0.1s 0.1s ease; 
-  opacity: 0;
-}
-.totalPriceWrap .couponMessage {
-    position: absolute;
-    top: 8px;
-    left: 50%;
-    transform: translateX(-50%);
-}
-.totalPriceWrap .couponWrap {
-    position: relative;
-}
-.floatingLabel {
-    position: absolute;
-    top: -30px;
-    left: 5px;
-}
-totalPriceWrap .redBtn {
-    margin-top: 30px;
-}
-.successPopupWrap{
-	position: fixed;
-	width: 100%;
-	height: 100%;
-	top: 0;
-	left: 0;
-    background: rgba(0,0,0,0.97);
-    z-index: 999;
-}
-.successPopupWrap .content {
-	text-align: center;
-	position: relative;
-	top: 50%;
-	height: 60%;
-	font-size: 54px;
-	-webkit-transform: translateY(-50%);
-    transform: translateY(-50%);
-    font-weight: 300;
-	display: block;
-	color: white;
-	-webkit-transition: color 0.2s;
-	transition: color 0.2s;
+    border: 1px solid#fff;
 }
