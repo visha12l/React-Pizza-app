@@ -43,6 +43,6 @@
     "underscore": "^1.8.3",
     "validator": "^8.2.0",
     "webpack": "^2.4.1",
-    "webpack-dev-server": "^3.1.11"
+    "webpack-dev-server": "^2.9.7"
   }
 }
