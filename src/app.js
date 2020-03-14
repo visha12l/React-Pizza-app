@@ -1,13 +1,15 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import { HashRouter as Router, Route } from 'react-router-dom';
-import PizzaListing from './javascript/components/pizzaListing.js';
+import PizzaListing from './javascript/components/pizzaListing';
 import './css/style.css';
 
-ReactDom.render((
-   <Router>
+ReactDom.render(
+  (
+    <Router>
       <div>
-      <Route exact path="/" component={PizzaListing} />
+        <Route exact path="/" component={PizzaListing} />
       </div>
-   </Router>
-), document.getElementById('app'));
+    </Router>
+  ), document.getElementById('app'),
+);
